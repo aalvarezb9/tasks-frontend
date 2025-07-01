@@ -1,0 +1,46 @@
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-left: 8px solid #cccccc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+mat-list-item {
+  align-items: flex-start;
+  padding: 8px 0;
+
+  &:hover {
+    cursor: grab;
+    opacity: 0.8;
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  margin-left: 12px;
+}
+
+h4 {
+  margin: 0 0 4px;
+  font-weight: 500;
+}
+
+p {
+  margin: 0 0 4px;
+}
+
+small {
+  color: #666;
+}
+
+mat-icon {
+  font-size: 20px;
+}
+
+.cat {
+  font-weight: 500;
+  color: #555;
+}

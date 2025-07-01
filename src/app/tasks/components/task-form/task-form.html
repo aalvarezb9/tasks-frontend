@@ -1,0 +1,32 @@
+<mat-card class="mb-3">
+    <form [formGroup]="form" (ngSubmit)="save()" aria-label="Añadir tarea">
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="title" required />
+            @if (form.get('title')?.invalid && form.get('title')?.touched) {
+            <mat-error>
+                El título es obligatorio.
+            </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="description" rows="3"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Categoría</mat-label>
+            <mat-select formControlName="categoryId" (selectionChange)="choose($event.value)">
+                <mat-option value="new">+ Nueva categoría…</mat-option>
+                @for (c of categories; track c.id) {
+                  <mat-option [value]="c.id">{{ c.name }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" [disabled]="form.invalid">
+            {{ task() ? 'Guardar' : 'Agregar' }}
+        </button>
+    </form>
+</mat-card>

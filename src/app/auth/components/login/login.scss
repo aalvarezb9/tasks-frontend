@@ -1,0 +1,26 @@
+.login-card {
+  max-width: 420px;
+  margin: 8vh auto 0;
+  padding: 16px 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-form mat-form-field {
+  margin-bottom: 1rem;
+}
+
+.actions {
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    margin: 4vh 12px 0;
+    padding: 12px 16px;
+  }
+}

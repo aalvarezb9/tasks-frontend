@@ -1,0 +1,26 @@
+.board {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 24px;
+}
+
+.board-column {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+h3 {
+  margin: 0 0 12px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Nueva categoría</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Color</mat-label>
+      <input matInput type="color" formControlName="color" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button color="primary" (click)="save()" [disabled]="form.invalid">Crear</button>
+</mat-dialog-actions>

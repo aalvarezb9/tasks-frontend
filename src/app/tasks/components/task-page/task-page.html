@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+    <span>Tasks Board</span>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Salir" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="board" cdkDropListGroup>
+    <div class="board-column">
+        <h3>Crear tarea</h3>
+        <app-task-form (created)="load()" (saved)="load()"></app-task-form>
+    </div>
+
+    <div class="board-column">
+        <h3>Pendientes</h3>
+
+        <div cdkDropList [cdkDropListData]="pending" class="column"
+            (cdkDropListDropped)="drop($event, taskStatus.PENDING)">
+            @for (t of pending; track t.id) {
+            <div class="task-card" cdkDrag [cdkDragData]="t">
+                <app-task-item [task]="t" (changed)="load()" (deleted)="load()"></app-task-item>
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="board-column">
+        <h3>Completadas</h3>
+        <div class="column" cdkDropList [cdkDropListData]="completed"
+            (cdkDropListDropped)="drop($event, taskStatus.COMPLETED)">
+            @for (t of completed; track t.id) {
+            <div class="task-card" cdkDrag [cdkDragData]="t">
+                <app-task-item [task]="t" (changed)="load()" (deleted)="load()"></app-task-item>
+            </div>
+            }
+        </div>
+    </div>
+</div>
