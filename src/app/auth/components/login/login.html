@@ -32,7 +32,6 @@
         }
       </mat-form-field>
 
-      <!-- Contraseña -->
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Contraseña</mat-label>
         <input
@@ -67,6 +66,15 @@
           } @else {
             Entrar
           }
+        </button>
+
+        <button 
+          mat-raised-button
+          color="accent"
+          type="submit"
+          class="full-width"
+          (click)="createUser()">
+          Crear usuario
         </button>
       </div>
     </form>

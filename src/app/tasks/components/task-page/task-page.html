@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <span>Tasks Board</span>
     <span class="spacer"></span>
-    <button mat-icon-button aria-label="Salir" (click)="onLogout()">
+    <button mat-icon-button matTooltip="Salir" aria-label="Salir" (click)="onLogout()">
         <mat-icon>logout</mat-icon>
     </button>
 </mat-toolbar>
@@ -12,7 +12,7 @@
         <app-task-form (created)="load()" (saved)="load()"></app-task-form>
     </div>
 
-    <div class="board-column">
+    <div class="board-column" [class.loading]="loadingPending()">
         <h3>Pendientes</h3>
 
         <div cdkDropList [cdkDropListData]="pending" class="column"
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="board-column">
+    <div class="board-column" [class.loading]="loadingCompleted()">
         <h3>Completadas</h3>
         <div class="column" cdkDropList [cdkDropListData]="completed"
             (cdkDropListDropped)="drop($event, taskStatus.COMPLETED)">

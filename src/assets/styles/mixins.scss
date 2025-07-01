@@ -1,0 +1,13 @@
+@mixin animacion-carga-colores($nombreAnimacion, $duracion, $colores) {
+  @keyframes #{$nombreAnimacion} {
+    $paso: 100% / (length($colores) - 1);
+    
+    @for $i from 1 through length($colores) {
+      #{($i - 1) * $paso} {
+        background-color: nth($colores, $i);
+      }
+    }
+  }
+
+  animation: #{$nombreAnimacion} $duracion infinite ease-in-out;
+}

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { Task } from '../../models/task.model';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
@@ -30,6 +30,8 @@ export class TaskPage implements OnInit {
   total = 0;
   page = 1;
   limit = 10;
+  loadingPending = signal(false);
+  loadingCompleted = signal(false);
 
   taskStatus = TaskStatus;
 
@@ -60,6 +62,8 @@ export class TaskPage implements OnInit {
   }
 
   load(): void {
+    this.loadingPending.set(true);
+    this.loadingCompleted.set(true);
     combineLatest([
       this.tasksService.list(this.page, this.limit),
       this.categoryService.list(this.page, this.limit)
@@ -77,8 +81,10 @@ export class TaskPage implements OnInit {
       this.progress = tasks.filter(t => t.status === 'in-progress');
       this.completed = tasks.filter(t => t.status === 'completed');
       this.pending$.next(this.pending);
+      this.loadingPending.set(false);
       this.progress$.next(this.progress);
       this.completed$.next(this.completed);
+      this.loadingCompleted.set(false);
     });
   }
 

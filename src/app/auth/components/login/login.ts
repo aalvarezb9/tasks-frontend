@@ -45,14 +45,13 @@ export class Login implements OnInit {
       .subscribe({
         next: () => this.router.navigate(['/tasks']),
         error: (err) => {
-          console.log('err', err);
           this.loading.set(false);
           this.createUser(email);
         },
       });
   }
 
-  private createUser(email: string): void {
+  createUser(email?: string): void {
     const ref = this.dialog.open(RegisterDialog, { data: { email } });
     ref.afterClosed().subscribe((result) => {
       if (!result) return;

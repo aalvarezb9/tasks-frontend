@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/mixins';
+
 .board {
   display: grid;
   gap: 24px;
@@ -9,6 +11,14 @@
   background: #fafafa;
   border-radius: 12px;
   padding: 16px;
+
+  &.loading {
+    @include animacion-carga-colores(
+    'pulsoCarga',
+    0.3s,
+    (#fafafa, #e0e0e0, #fafafa)
+  );
+  }
 }
 
 .column {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MessageDialog } from './components/message-dialog/message-dialog';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialog } from './components/confirm-dialog/confirm-dialog';
 import { RegisterDialog } from './components/register-dialog/register-dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 
 const mat = [
   MatFormFieldModule,
@@ -29,7 +30,10 @@ const mat = [
   MatIconModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSpinner,
+  ReactiveFormsModule,
+  MatSelectModule
 ];
 
 @NgModule({

@@ -19,6 +19,7 @@ import { EditTask } from './components/edit-task/edit-task';
 import { CreateCategoryDialog } from './components/create-category-dialog/create-category-dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { CdkDrag, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
+import { SharedModule } from '../shared/shared-module';
 
 
 
@@ -36,19 +37,7 @@ import { CdkDrag, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
     CdkDropList, 
     CdkDrag,
     TasksRoutingModule,
-    ReactiveFormsModule,
-    TasksRoutingModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatListModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatCardModule,
-    MatDialogModule,
-    MatPaginatorModule,
-    MatSelectModule
+    SharedModule
   ]
 })
 export class TasksModule { }
