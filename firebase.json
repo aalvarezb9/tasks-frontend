@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "y",
+    "public": "dist/tasks-frontend/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
