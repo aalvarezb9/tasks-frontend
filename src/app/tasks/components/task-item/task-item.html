@@ -15,10 +15,10 @@
       <small>{{ task().createdAt | date:'medium' }}</small>
     </div>
   
-    <button mat-icon-button aria-label="Editar" mat-tooltip="Editar" mat-tooltip-position="above" matTooltip="text" (click)="edit()">
+    <button mat-icon-button aria-label="Editar" mat-tooltip="Editar" mat-tooltip-position="above" matTooltip="Editar" (click)="edit()">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button color="warn" aria-label="Eliminar" (click)="remove()">
+    <button mat-icon-button color="warn" aria-label="Eliminar" matTooltipPosition="above" matTooltip="Eliminar" (click)="remove()">
       <mat-icon>delete</mat-icon>
     </button>
 </mat-list-item>
